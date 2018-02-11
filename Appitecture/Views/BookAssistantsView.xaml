@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Appitecture.Views.BookAssistantsView"  xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms"
+    xmlns:vm="clr-namespace:Appitecture.Core.ViewModels;assembly=Appitecture.Core"
+    xmlns:cells="clr-namespace:Appitecture.Cells"
+    xmlns:root="clr-namespace:Appitecture"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:effects="clr-namespace:Appitecture.Effects"
+        xmlns:Converters="clr-namespace:Appitecture.Converter"
+    
+    x:TypeArguments="vm:BookAssistantsViewModel" Title="Book Assistant">
+    <mvvm:ViewBase.Resources>
+
+          <ResourceDictionary>
+  <Converters:DateTimeToTimeSpanConverter
+    x:Key="DateTimeToTimeSpanConverter"/>
+            <Converters:DateTimeToDateTimeOffsetConverter
+    x:Key="DateTimeToDateTimeOffsetConverter"/>
+    </ResourceDictionary>
+        
+</mvvm:ViewBase.Resources>
+  <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+  
+	     <Grid>
+        <ActivityIndicator HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+        <Grid Padding="10" IsVisible="{Binding IsNotBusy}" ColumnSpacing="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+               <Label Grid.Column="0" Margin="0,10,0,0" Grid.Row="0"  Text="Assistant Name" FontSize="Small" FontAttributes="Bold" />
+ <Label Grid.Column="1" Grid.Row="0" Margin="0,10,0,0" Text="{Binding  myassistant.name}" FontSize="Small" FontAttributes="Bold" />
+ 
+         <Label Grid.Column="0" Grid.Row="1" Margin="0,10,0,0"  Text="Select From Date" FontSize="Small" FontAttributes="Bold" />
+         <Label Grid.Column="0" Grid.Row="2" Margin="0,10,0,0" Text="Select From Time" FontSize="Small" FontAttributes="Bold" />
+ <Label Grid.Column="0" Grid.Row="3" Margin="0,10,0,0" Text="Select To Date" FontSize="Small" FontAttributes="Bold" />
+ <Label Grid.Column="0" Grid.Row="4"  Text="Select To Time" FontSize="Small" FontAttributes="Bold" />
+ <StackLayout  Grid.Column="1" Grid.Row="1" Margin="0,10,0,0" >
+      <DatePicker   Date="{Binding FromDate}"  
+                        MinimumDate="{x:Static sys:DateTime.Today}" >
+         <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+               <x:Arguments>
+                  <x:String>Dec 31 2050</x:String>
+               </x:Arguments>
+            </sys:DateTime>
+         </DatePicker.MaximumDate>
+      </DatePicker>
+    </StackLayout>
+                     <StackLayout Margin="0,10,0,0" Grid.Column="1" Grid.Row="2" >
+      <TimePicker Margin="0,10,0,0" x:Name = "FormTime" Time="{Binding FromTime,Converter={StaticResource DateTimeToTimeSpanConverter}, Mode=TwoWay}"  /> 
+      
+   
+   </StackLayout>
+             <StackLayout Margin="0,10,0,0"  Grid.Column="1" Grid.Row="3" >
+      <DatePicker Date="{Binding ToDate}" Margin="0,10,0,0" MinimumDate="{x:Static sys:DateTime.Today}" VerticalOptions="CenterAndExpand" >
+        
+         <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+               <x:Arguments>
+                  <x:String>Dec 31 2050</x:String>
+               </x:Arguments>
+            </sys:DateTime>
+         </DatePicker.MaximumDate>
+      </DatePicker>
+   </StackLayout>
+            <StackLayout  Margin="0,10,0,0" Grid.Column="1" Grid.Row="4" >
+      <TimePicker x:Name = "toTime" Time="{Binding ToTime,Converter={StaticResource DateTimeToTimeSpanConverter}, Mode=TwoWay}"  Margin = "0,1"/> 
+      
+   </StackLayout>
+            <Entry Margin="0,10,0,0" Grid.Column="0" Text="{Binding assistantBooking1.Comments}" HeightRequest="40" Grid.ColumnSpan="2" Grid.Row="5" Placeholder="Comments" ></Entry>
+
+                        <Button Text="Post" Margin="0,20,0,0" BackgroundColor="Red" Grid.ColumnSpan="2" Grid.Row="6" Command="{Binding BookCommand} " />
+                             <Button Text="View Bookings" Margin="0,20,0,0" BackgroundColor="Red" Grid.ColumnSpan="2" Grid.Row="7" Command="{Binding HistoryCommand} " />
+                   
+            <Label Margin="0,10,0,0" x:Name="messageLabel" Grid.Row="8" TextColor="Red" Grid.ColumnSpan="2" Text="{Binding StatusMassege}"  />
+     
+        </Grid>
+        </Grid>
+        </StackLayout>
+</mvvm:ViewBase>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Appitecture.Views.AssistantsView"
+      xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms"
+    xmlns:vm="clr-namespace:Appitecture.Core.ViewModels;assembly=Appitecture.Core"
+    xmlns:cells="clr-namespace:Appitecture.Cells"
+    xmlns:root="clr-namespace:Appitecture"
+    xmlns:effects="clr-namespace:Appitecture.Effects"
+    x:TypeArguments="vm:AssistantsViewModel" Title="Search Assistants"
+    >
+    <Grid>
+        <ActivityIndicator HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+            <ListView x:Name="Myassistants" ItemsSource="{Binding Myassistants}" SelectedItem="{Binding Myassistant}" IsVisible="{Binding IsNotBusy}" 
+            CachingStrategy="RecycleElementAndDataTemplate" RowHeight="83" ItemSelected="Handle_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <cells:CustomViewCell>
+                      
+                        <Grid Padding="15,10,10,10" ColumnSpacing="20" RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="63" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                             <Label Grid.Row="1" Grid.Column="1" Text="{Binding name}" FontSize="Small" FontAttributes="Bold" />
+
+                              <Label Grid.Row="2" Grid.Column="1" Text="{Binding profession}" FontSize="Micro" />
+                           <Label Grid.Row="3" Grid.Column="1" Text="{Binding wagesPerHour}" FontAttributes="Bold" FontSize="Micro" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="Name" FontSize="Small" />
+
+                              <Label Grid.Row="2" Grid.Column="0" Text="Profession" FontSize="Micro" />
+                           <Label Grid.Row="3" Grid.Column="0" Text="Wages($)" FontSize="Micro" />
+              
+                        </Grid>
+                    </cells:CustomViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+	
+</mvvm:ViewBase>

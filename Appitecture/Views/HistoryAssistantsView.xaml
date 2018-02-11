@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Appitecture.Views.HistoryAssistantsView"  xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms"
+    xmlns:vm="clr-namespace:Appitecture.Core.ViewModels;assembly=Appitecture.Core"
+    xmlns:cells="clr-namespace:Appitecture.Cells"
+    xmlns:root="clr-namespace:Appitecture"
+    xmlns:effects="clr-namespace:Appitecture.Effects"
+    x:TypeArguments="vm:HistoryAssistantsViewModel" Title="History">
+      <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+  
+	 <Grid>
+        <ActivityIndicator HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+            <ListView x:Name="Myassistants" ItemsSource="{Binding assistantBookings}"  IsVisible="{Binding IsNotBusy}" 
+            CachingStrategy="RecycleElementAndDataTemplate" RowHeight="123" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <cells:CustomViewCell>
+                      
+                        <Grid Padding="15,10,10,10" ColumnSpacing="20" RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="73" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                 <RowDefinition Height="Auto" />
+                                 <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                           
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding name}" FontSize="Small" />
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding fromDateTime}" FontSize="Micro" />
+                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding ToDate}" FontSize="Micro" />
+                            <Label Grid.Row="4" Grid.Column="1" Text="{Binding date}" FontSize="Micro" />
+                             <Label Grid.Row="5" Grid.Column="1" Text="{Binding Comments}" FontSize="Micro" />
+                             <Label FontAttributes="Bold" Grid.Row="1" Grid.Column="0" Text="Name"  FontSize="Small" />
+                            <Label FontAttributes="Bold" Grid.Row="2" Grid.Column="0" Text="From " FontSize="Micro" />
+                            <Label FontAttributes="Bold" Grid.Row="3" Grid.Column="0" Text="To" FontSize="Micro" />
+                            <Label FontAttributes="Bold" Grid.Row="4" Grid.Column="0" Text="Booking Date" FontSize="Micro" />
+                             <Label FontAttributes="Bold" Grid.Row="5" Grid.Column="0" Text="Comments" FontSize="Micro" />
+                     
+                        </Grid>
+                    </cells:CustomViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+        </StackLayout>
+</mvvm:ViewBase>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Appitecture.Views.AssistantView"  
+    xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms"
+    xmlns:vm="clr-namespace:Appitecture.Core.ViewModels;assembly=Appitecture.Core"
+    xmlns:cells="clr-namespace:Appitecture.Cells"
+    xmlns:root="clr-namespace:Appitecture"
+    xmlns:effects="clr-namespace:Appitecture.Effects"
+         xmlns:Converters="clr-namespace:Appitecture.Converter"
+  
+    x:TypeArguments="vm:AssistantViewModel" Title="My Assistant">
+    <mvvm:ViewBase.Resources>
+
+          <ResourceDictionary>
+  <Converters:AvaibiltyConverter
+    x:Key="AvaibiltyConverterKey"/>
+            <Converters:ImageConverter
+    x:Key="ImageConverterKey"/>
+    </ResourceDictionary>
+        
+</mvvm:ViewBase.Resources>
+      <StackLayout VerticalOptions="FillAndExpand" Margin="10">
+  
+	 <Grid>
+        <ActivityIndicator HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+        <Grid Padding="10" IsVisible="{Binding IsNotBusy}" ColumnSpacing="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+                 <RowDefinition Height="Auto" />
+              
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Margin="0,5,0,0" Grid.Column="0" Text="Name" FontSize="Small" FontAttributes="Bold" />
+
+            <Label  Margin="0,5,0,0" Grid.Column="1" Text="{Binding Item.name}" FontSize="Small" FontAttributes="Bold" />
+  <Label Grid.Row="1"  Margin="0,5,0,0" Grid.Column="0" Text="Wages Per Hours($)" FontAttributes="Bold"  FontSize="Micro" />
+          
+            <Label  Margin="0,5,0,0" Grid.Row="1" Grid.Column="1" Text="{Binding Item.wagesPerHour}" FontSize="Micro" />
+                <Image Grid.Row="2"  Margin="0,5,0,0" Grid.ColumnSpan="2"  root:Utilities.CornerRadius="10" HeightRequest="100" WidthRequest="100" Grid.RowSpan="2" Source="{Binding Item.imageURL,Converter={StaticResource ImageConverterKey}" Aspect="AspectFit" />
+        
+          <Label Grid.Row="4"  Margin="0,5,0,0" Grid.Column="1" Text="{Binding Item.profession}" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="5"  Margin="0,5,0,0" Grid.Column="1" Text="Yes" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="6"  Margin="0,5,0,0" Grid.Column="1" Text="{Binding Item.languages}" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="7"  Margin="0,5,0,0" Grid.Column="1" Text="{Binding Item.localplaceknowledge,Converter={StaticResource AvaibiltyConverterKey}" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="8"  Margin="0,5,0,0" Grid.Column="1" Text="{Binding Item.vehicles}" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="9"  Margin="0,5,0,0" Grid.Column="1" Text="{Binding Item.description}" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="10"  Margin="0,5,0,0" Grid.Column="1" Text="{Binding Item.ratting}" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="11" Grid.Column="1" Text="{Binding Item.reviews}" LineBreakMode="WordWrap" FontSize="Micro" />
+
+             <Label Grid.Row="12"  Margin="0,5,0,0" Grid.Column="1" Text="{Binding Item.contactInfo}" LineBreakMode="WordWrap" FontSize="Micro" />
+              <Label Grid.Row="4"  Margin="0,5,0,0" Grid.Column="0" Text="Profession" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="5"  Margin="0,5,0,0"  Grid.Column="0" Text="Availability" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="6"  Grid.Column="0" Margin="0,5,0,0" Text="Languages Known" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="7" Grid.Column="0" Margin="0,5,0,0" Text="local Place Knowledge" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="8" Grid.Column="0" Margin="0,5,0,0" Text="Has Vachicle" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="9" Grid.Column="0" Margin="0,5,0,0" Text="Description" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="10" Grid.Column="0" Margin="0,5,0,0" Text="Avg. Ratting" LineBreakMode="WordWrap" FontSize="Micro" />
+          <Label Grid.Row="11" Grid.Column="0" Margin="0,5,0,0" Text="Top Ratting" LineBreakMode="WordWrap" FontSize="Micro" />
+
+ <Label Grid.Row="12" Grid.Column="0" Margin="0,5,0,0" Text="Contact Info" LineBreakMode="WordWrap" FontSize="Micro" />
+             <Label Grid.Row="12" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Item.contactInfo}" LineBreakMode="WordWrap" FontSize="Micro" />
+
+                <Button Grid.Row="13" Margin="0,10,0,0" BackgroundColor="Red" Grid.ColumnSpan="2" Text="Book" Command="{Binding BookCommand} " />
+      
+        </Grid>
+    </Grid>
+        </StackLayout>
+</mvvm:ViewBase>

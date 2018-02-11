@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Appitecture.Views.AssistantMapView"
+       xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms"
+    xmlns:vm="clr-namespace:Appitecture.Core.ViewModels;assembly=Appitecture.Core"
+    xmlns:cells="clr-namespace:Appitecture.Cells"
+    xmlns:root="clr-namespace:Appitecture"
+    xmlns:effects="clr-namespace:Appitecture.Effects"
+      x:TypeArguments="vm:AssistantMapViewModel" Title="Search Assistants"
+     xmlns:bindings="clr-namespace:Appitecture.Binding"
+
+    xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+    >
+	<ContentPage.Content>
+        <Grid>
+              <ActivityIndicator HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+      
+         <Grid
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="6*" />
+            </Grid.RowDefinitions>
+                    <StackLayout  Orientation="Horizontal"  HorizontalOptions="Fill" Grid.Row="0" VerticalOptions="Fill">
+                    <Grid>
+                          <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                             <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                    </Grid>
+                    <Label Grid.Column="0" Text="List" Margin="10" FontSize="Micro" VerticalOptions="Center" />
+                     
+                      <Switch Grid.Column="1" x:Name="switchView"   
+                            VerticalOptions="Center"
+                             Toggled="Handle_Toggled"
+                        Margin="10"    />
+                  <Label Text="Map" Grid.Column="2" FontSize="Micro" Margin="10" VerticalOptions="Center" />
+                   <Image Grid.Column="3"  Source="Filter.png" Margin="10"  HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="25" WidthRequest="23" Aspect="AspectFit">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding filterCommand}"  />
+                                        </Image.GestureRecognizers>
+                    </Image>
+                <Image  Grid.Column="4" Source="CalendarImage.png" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" VerticalOptions="FillAndExpand"  HeightRequest="25" WidthRequest="23" Aspect="AspectFit">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding HistoryCommand}"  />
+                                        </Image.GestureRecognizers>
+                    </Image>
+                
+                
+                </StackLayout>
+                  <maps:Map Grid.Row="1"  x:Name="MapMyassistants" IsVisible="false"
+                      InitialCameraUpdate="-23.68, -46.87, 13, 30, 60"
+                      VerticalOptions="FillAndExpand">
+                        <maps:Map.Behaviors>
+                           <bindings:BindingPinsBehavior Value="{Binding Pins}"/>
+                        <bindings:PinClickedToCommandBehavior Command="{Binding PinClickedCommand}"/>
+           
+                 </maps:Map.Behaviors>
+            </maps:Map>
+
+             <ListView Grid.Row="1"  x:Name="ListMyassistants" ItemsSource="{Binding Myassistants}" SelectedItem="{Binding Myassistant}" IsVisible="{Binding IsNotBusy}" 
+            CachingStrategy="RecycleElementAndDataTemplate" RowHeight="83" ItemSelected="Handle_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <cells:CustomViewCell>
+                      
+                        <Grid Padding="15,10,10,10" ColumnSpacing="20" RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="63" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                             <Label Grid.Row="1" Grid.Column="1" Text="{Binding name}" FontSize="Small" FontAttributes="Bold" />
+
+                              <Label Grid.Row="2" Grid.Column="1" Text="{Binding profession}" FontSize="Micro" />
+                           <Label Grid.Row="3" Grid.Column="1" Text="{Binding wagesPerHour}" FontAttributes="Bold" FontSize="Micro" />
+                           <Label Grid.Row="1" Grid.Column="0" Text="Name" FontSize="Small" />
+
+                           <Label Grid.Row="2" Grid.Column="0" Text="Profession" FontSize="Micro" />
+                           <Label Grid.Row="3" Grid.Column="0" Text="Wages($)" FontSize="Micro" />
+              
+                        </Grid>
+                    </cells:CustomViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            </Grid>
+            </Grid>
+	</ContentPage.Content>
+</mvvm:ViewBase>

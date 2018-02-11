@@ -1,0 +1,60 @@
+﻿<Properties StartupConfiguration="{4C800418-8540-4D93-A960-92C8F7A886BF}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Xamarin.Forms.GoogleMaps-master/XFGoogleMapSample/XFGoogleMapSample/CustomPinsPage.xaml">
+    <Files>
+      <File FileName="Appitecture.Core/ViewModels/AssistantMapViewModel.cs" Line="30" Column="64" />
+      <File FileName="Appitecture/Views/SearchParameterView.xaml" Line="58" Column="61" />
+      <File FileName="Appitecture.Core/Models/SelectedParameter.cs" Line="18" Column="28" />
+      <File FileName="Appitecture.Core/Requests/GetAssistantRequest.cs" Line="28" Column="18" />
+      <File FileName="iOS/Main.cs" Line="12" Column="1" />
+      <File FileName="Appitecture/Views/AssistantMapView.xaml" Line="73" Column="30" />
+      <File FileName="Appitecture.Core/ViewModels/AssistantsViewModel.cs" Line="1" Column="1" />
+      <File FileName="Appitecture.Core/ViewModels/BookAssistantsViewModel.cs" Line="157" Column="50" />
+      <File FileName="Appitecture.Core/ViewModels/SearchParameterViewModel.cs" Line="14" Column="8" />
+      <File FileName="Appitecture/Bootstrapper.cs" Line="37" Column="10" />
+      <File FileName="Appitecture/Views/AssistantView.xaml" Line="81" Column="51" />
+      <File FileName="Appitecture/Views/AssistantsView.xaml" Line="49" Column="1" />
+      <File FileName="Appitecture.Core/ViewModels/LoginViewModel.cs" Line="17" Column="7" />
+      <File FileName="Appitecture.Core/Requests/GetBookAssistantsRequest.cs" Line="18" Column="1" />
+      <File FileName="Appitecture/Views/BookAssistantsView.xaml.cs" Line="1" Column="1" />
+      <File FileName="Appitecture/Views/BookAssistantsView.xaml" Line="50" Column="48" />
+      <File FileName="Appitecture/Views/LoginView.xaml" Line="15" Column="55" />
+      <File FileName="Appitecture.Core/Requests/GetLoginRequests.cs" Line="1" Column="1" />
+      <File FileName="../../.nuget/packages/xam.plugin.geolocator/4.2.0/readme.txt" Line="1" Column="1" />
+      <File FileName="Appitecture.Core/Requests/GetAssistantsRequest.cs" Line="21" Column="41" />
+      <File FileName="Appitecture/Views/HistoryAssistantsView.xaml" Line="47" Column="10" />
+      <File FileName="../Xamarin.Forms.GoogleMaps-master/XFGoogleMapSample/XFGoogleMapSample/CustomPinsPage.xaml" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Appitecture" expanded="True" selected="True">
+            <Node name="Appitecture" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="BookAssistantsView.xaml" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="Appitecture.Core" expanded="True" />
+            <Node name="Appitecture.Droid" expanded="True" />
+            <Node name="Appitecture.iOS" expanded="True">
+              <Node name="Resources" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.ItemProperties.Appitecture.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DEC33E78-6958-4FD1-9830-C801C2547F92" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/rahul/Downloads/App/Appitecture.Core/ViewModels/AppViewModel.cs" relfile="Appitecture.Core/ViewModels/AppViewModel.cs" line="11" column="1" />
+      <Breakpoint file="/Users/rahul/Downloads/App/Appitecture.Core/ViewModels/AppsViewModel.cs" relfile="Appitecture.Core/ViewModels/AppsViewModel.cs" line="29" column="58" />
+      <Breakpoint file="/Users/rahul/Downloads/App/Appitecture/Views/LoginPage.xaml.cs" relfile="Appitecture/Views/LoginPage.xaml.cs" line="12" column="1" />
+      <Breakpoint file="/Users/rahul/Downloads/App/Appitecture.Core/ViewModels/AppsViewModel.cs" relfile="Appitecture.Core/ViewModels/AppsViewModel.cs" line="13" column="1" />
+      <Breakpoint file="/Users/rahul/Downloads/App/Appitecture.Core/ViewModels/BookAssistantsViewModel.cs" relfile="Appitecture.Core/ViewModels/BookAssistantsViewModel.cs" line="150" column="1" />
+      <RunToCursorBreakpoint file="/Users/rahul/Downloads/App/Appitecture/Views/BookAssistantsView.xaml" relfile="Appitecture/Views/BookAssistantsView.xaml" line="50" column="47" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

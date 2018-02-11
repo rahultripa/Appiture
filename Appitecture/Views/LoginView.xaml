@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:ViewBase xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms"
+    xmlns:vm="clr-namespace:Appitecture.Core.ViewModels;assembly=Appitecture.Core"
+    xmlns:cells="clr-namespace:Appitecture.Cells"
+    xmlns:root="clr-namespace:Appitecture"
+    xmlns:effects="clr-namespace:Appitecture.Effects"
+    x:Class="Appitecture.Views.LoginView" 
+    x:TypeArguments="vm:LoginViewModel" Title="Login">
+
+    <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+          <ActivityIndicator HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+           <Label  Text="My Assistants"  FontSize="28" HorizontalOptions="CenterAndExpand"  VerticalOptions="StartAndExpand"  />
+            <Label Text="User Name" Margin="0,20,0,0"  />
+            <Entry  Margin="0,20,0,0" x:Name="usernameEntry" Text="{Binding objassistantUser.UserId}" Placeholder="username" />
+            <Label  Margin="0,20,0,0" Text="Password"  />
+            <Entry  Margin="0,20,0,0" x:Name="passwordEntry" Text="{Binding objassistantUser.Password}"  IsPassword="true" />
+            <Button  Margin="0,20,0,0" Text="Login"   Command="{Binding LoginCommand} " />
+            <Label  Margin="0,20,0,0"  TextColor="Red" x:Name="messageLabel" Text="{Binding StatusMassege}"  />
+        </StackLayout>
+</mvvm:ViewBase>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms"
+    xmlns:vm="clr-namespace:Appitecture.Core.ViewModels;assembly=Appitecture.Core"
+    xmlns:cells="clr-namespace:Appitecture.Cells"
+    xmlns:root="clr-namespace:Appitecture"
+    xmlns:effects="clr-namespace:Appitecture.Effects"
+      Title="Search Assistants"
+    x:TypeArguments="vm:SearchParameterViewModel"
+    x:Class="Appitecture.Views.SearchParameterView">
+	<ContentPage.Content>
+          <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+  
+          <Grid Padding="20,0,20,10" RowSpacing="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+              <Label Text="Local Knowledge " Margin="0,10,0,0" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"  />
+              <Label Text="Profession " Margin="0,10,0,0" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"  />
+              <Label Text="Ratting " Margin="0,10,0,0" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"  />
+                <Picker Margin="0,10,0,0" Grid.Row="0" Grid.Column="1"  Title="Any" HorizontalOptions="FillAndExpand" x:Name="pkVicle" SelectedItem="{Binding selectedParameter.selectedLocalKnowlage}"
+                              VerticalOptions="FillAndExpand" >
+                              <Picker.Items>
+                  
+    <x:String>Yes</x:String>
+    <x:String>No</x:String>
+                    </Picker.Items>
+            </Picker>
+        
+            <Picker Margin="0,10,0,0" HorizontalOptions="FillAndExpand"  Title="Any" Grid.Row="3" SelectedItem="{Binding selectedParameter.selectedRatting}" Grid.Column="1" x:Name="pkProfession"
+                              VerticalOptions="FillAndExpand" >
+                              <Picker.Items>
+                     <x:String>1</x:String>
+    <x:String>2</x:String>
+    <x:String>3</x:String>
+                     <x:String>4</x:String>
+                     <x:String>5</x:String>
+                    </Picker.Items>
+            </Picker>
+            
+            <Picker Margin="0,10,0,0" HorizontalOptions="FillAndExpand"  Title="Any" ItemsSource="{Binding selectedParameter.listProfession}" SelectedItem="{Binding selectedParameter.selectedProfession}" Grid.Row="2" Grid.Column="1" x:Name="pkRatting"
+                              VerticalOptions="FillAndExpand" >
+                          
+            </Picker>
+                     <Button Grid.ColumnSpan="2" Margin="0,20,0,0" BackgroundColor="Red" Text="Submit" Command="{Binding SubmitCommand} "  Grid.Row="7" HorizontalOptions="FillAndExpand" Grid.Column="0" />
+            
+            </Grid>
+            </StackLayout>
+	</ContentPage.Content>
+</mvvm:ViewBase>
